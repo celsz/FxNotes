@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.celsz.fxnotes.MainController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="234.0">
+      <ScrollPane fx:id="contentScrollPane" hbarPolicy="NEVER" layoutX="234.0" layoutY="142.0" prefHeight="459.0" prefWidth="566.0">
+         <content>
+            <VBox fx:id="dataVBox" prefHeight="457.0" prefWidth="564.0" spacing="20.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <TextArea fx:id="textNote" prefHeight="370.0" prefWidth="564.0" text="Text&#10;Text&#10;Text&#10;Text&#10;Text">
+                     <font>
+                        <Font size="24.0" />
+                     </font></TextArea>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ScrollPane hbarPolicy="NEVER" layoutY="141.0" prefHeight="459.0" prefWidth="234.0">
          <content>
             <VBox fx:id="listVBox" prefWidth="235.0" spacing="10.0">
                <padding>
@@ -15,14 +38,29 @@
                </padding></VBox>
          </content>
       </ScrollPane>
-      <ScrollPane fx:id="contentScrollPane" hbarPolicy="NEVER" layoutX="234.0" layoutY="1.0" prefHeight="600.0" prefWidth="566.0">
-         <content>
-            <VBox fx:id="dataVBox" prefWidth="564.0" spacing="20.0">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </VBox>
-         </content>
-      </ScrollPane>
+      <Label text="FxNotes">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField layoutX="-1.0" layoutY="43.0" text="Введите текст" />
+      <HBox layoutX="234.0" prefHeight="24.0" prefWidth="564.0" spacing="360.0">
+         <children>
+            <Label prefHeight="36.0" prefWidth="144.0" text="Теги">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="50.0" text="Button" />
+         </children>
+      </HBox>
+      <AnchorPane layoutX="234.0" layoutY="40.0" prefHeight="79.0" prefWidth="564.0">
+         <children>
+            <CheckBox layoutX="6.0" layoutY="5.0" mnemonicParsing="false" text="TAG1" />
+            <CheckBox layoutX="6.0" layoutY="36.0" mnemonicParsing="false" text="TAG2" />
+            <CheckBox layoutX="94.0" layoutY="5.0" mnemonicParsing="false" text="TAG3" />
+         </children>
+      </AnchorPane>
+      <FlowPane prefHeight="135.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -27,6 +28,9 @@ public class MainController implements Initializable {
 
     @FXML
     private VBox dataVBox;
+
+    @FXML
+    private TextArea textNote;
 
     private Label text = new Label();
 
@@ -84,9 +88,8 @@ public class MainController implements Initializable {
             item.setFont(new Font(20.0));
             item.setText(filename);
             item.setOnAction(event -> {
-                text.setText(notes.get(filename).get("content").toString());
-                dataVBox.getChildren().clear();
-                dataVBox.getChildren().add(new Label(notes.get(filename).get("content").toString()));
+                String text = notes.get(filename).get("content").toString();
+                textNote.setText(text);
             });
             listVBox.getChildren().add(item);
         }
