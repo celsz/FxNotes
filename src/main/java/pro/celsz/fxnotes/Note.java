@@ -3,12 +3,10 @@ package pro.celsz.fxnotes;
 public class Note {
     String title;
     String content;
-    String[] tags;
 
-    public Note(String title, String content, String[] tags) {
+    public Note(String title, String content) {
         this.title = title;
         this.content = content;
-        this.tags = tags;
 
     }
 
@@ -28,11 +26,4 @@ public class Note {
         this.content = content;
     }
 
-    public String[] getTags() {
-        return tags;
-    }
-
-    public void setTags(String[] tags) {
-        this.tags = tags;
-    }
 }

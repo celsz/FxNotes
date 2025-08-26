@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -40,59 +41,12 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initNotes();
-        initNotesList();
-        dataVBox.getChildren().clear();
-        //dataVBox.getChildren().add(text);
-    }
-
-    private void initNotes(){
-        File notefolder = new File("src/main/resources/pro/celsz/fxnotes/data");
-        List<File> files = Arrays.asList(Objects.requireNonNull(notefolder.listFiles()));
-        for (File file : files) {
-            filenames.add(file.getName());
-            try (FileReader reader = new FileReader("src/main/resources/pro/celsz/fxnotes/data" + "/" + file.getName())) {
-                int character;
-                StringBuilder content = new StringBuilder();
-                while ((character = reader.read()) != -1) {
-                    content.append((char) character);
-                }
-                List<String> words = Arrays.asList(content.toString().split(" "));
-                StringBuilder note = new StringBuilder();
-                for (int i = 0; i < words.size(); i++) {
-                    if (!words.get(i).equals("<end>")) {
-                        note.append(words.get(i));
-                        note.append(" ");
-                    }else{
-                        i++;
-                    }
-                }
-
-                Map<String, Object> data = new HashMap<>();
-                data.put("content", note.toString());
-                notes.put(file.getName(), data);
-                System.out.println(notes);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            NoteManager.initNotesListVisual(listVBox, textNote);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    private void initNotesList(){
-        listVBox.getChildren().clear();
-        Arrays.sort(filenames.toArray());
-        for (String filename : filenames) {
-            Button item = new Button();
-            item.setPrefWidth(220.0);
-            item.setPrefHeight(50.0);
-            item.setFont(new Font(20.0));
-            item.setText(filename);
-            item.setOnAction(event -> {
-                String text = notes.get(filename).get("content").toString();
-                textNote.setText(text);
-            });
-            listVBox.getChildren().add(item);
-        }
 
-    }
 }

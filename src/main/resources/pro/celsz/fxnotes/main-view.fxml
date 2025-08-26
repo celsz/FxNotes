@@ -15,19 +15,18 @@
 
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pro.celsz.fxnotes.MainController">
    <children>
+      <VBox fx:id="dataVBox" prefHeight="457.0" prefWidth="564.0" spacing="20.0">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
       <ScrollPane fx:id="contentScrollPane" hbarPolicy="NEVER" layoutX="234.0" layoutY="142.0" prefHeight="459.0" prefWidth="566.0">
          <content>
-            <VBox fx:id="dataVBox" prefHeight="457.0" prefWidth="564.0" spacing="20.0">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-               <children>
-                  <TextArea fx:id="textNote" prefHeight="370.0" prefWidth="564.0" text="Text&#10;Text&#10;Text&#10;Text&#10;Text">
-                     <font>
-                        <Font size="24.0" />
-                     </font></TextArea>
-               </children>
-            </VBox>
+            <TextArea fx:id="textNote" prefHeight="370.0" prefWidth="564.0" text="Text&#10;Text&#10;Text&#10;Text&#10;Text">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
          </content>
       </ScrollPane>
       <ScrollPane hbarPolicy="NEVER" layoutY="141.0" prefHeight="459.0" prefWidth="234.0">
@@ -35,7 +34,8 @@
             <VBox fx:id="listVBox" prefWidth="235.0" spacing="10.0">
                <padding>
                   <Insets left="10.0" right="10.0" top="10.0" />
-               </padding></VBox>
+               </padding>
+            </VBox>
          </content>
       </ScrollPane>
       <Label text="FxNotes">
