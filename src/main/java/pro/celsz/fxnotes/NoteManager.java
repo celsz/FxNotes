@@ -14,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class NoteManager {
     private static ArrayList<Note> notes = new ArrayList<>();
@@ -49,19 +50,24 @@ public class NoteManager {
 
         for (Note note : notes) {
             Button btn = new Button(note.getTitle());
-            btn.setPrefWidth(20);
-            btn.setPrefHeight(20);
+            btn.setPrefWidth(200);
+            btn.setPrefHeight(50);
             btn.setOnAction(e -> {
                  textArea.clear();
                  textArea.setText(note.getContent());
                  currentNote = note.getTitle();
-                 textArea.textProperty().addListener(new ChangeListener<String>() {
-                     @Override
-                     public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                         note.setContent(newValue);
-                     }
-                 });
+
             });
+            textArea.textProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    if (note.getContent().equals(oldValue) & !Objects.equals(newValue, "")) {
+                        note.setContent(newValue);
+                    }
+
+                }
+            });
+            listVBox.getChildren().add(btn);
         }
     }
 
@@ -75,11 +81,10 @@ public class NoteManager {
                 String everything = IOUtils.toString(inputStream);
                 Note nn = new Note(file.getName(), everything);
                 addNote(nn);
-
-
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
 
         }
 
