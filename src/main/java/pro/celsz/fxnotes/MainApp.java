@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 
@@ -15,6 +16,12 @@ public class MainApp extends Application {
         stage.setTitle("Fx Notes");
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        NoteManager.save();
+        super.stop();
     }
 
     public static void main(String[] args) {

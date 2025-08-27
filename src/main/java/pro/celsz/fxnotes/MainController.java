@@ -18,25 +18,13 @@ import java.net.URL;
 import java.util.*;
 
 public class MainController implements Initializable {
-    @FXML
-    private AnchorPane mainPane;
-
-    @FXML
-    private ScrollPane contentScrollPane;
 
     @FXML
     private VBox listVBox;
 
     @FXML
-    private VBox dataVBox;
-
-    @FXML
     private TextArea textNote;
 
-    private Label text = new Label();
-
-    private Map<String, Map<String, Object>> notes = new HashMap<>();
-    private List<String> filenames = new ArrayList<>();
 
 
     @Override
@@ -46,6 +34,8 @@ public class MainController implements Initializable {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+
     }
 
 
