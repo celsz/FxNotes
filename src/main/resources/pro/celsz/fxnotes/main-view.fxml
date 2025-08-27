@@ -51,7 +51,13 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="ab" mnemonicParsing="false" prefHeight="36.0" prefWidth="50.0" text="Button" />
+            <Button fx:id="addNote" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="+">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
       <AnchorPane layoutX="234.0" layoutY="40.0" prefHeight="79.0" prefWidth="564.0">
