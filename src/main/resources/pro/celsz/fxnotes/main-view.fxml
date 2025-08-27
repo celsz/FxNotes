@@ -38,12 +38,6 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Label text="FxNotes">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Label>
-      <TextField layoutX="-1.0" layoutY="43.0" text="Введите текст" />
       <HBox layoutX="234.0" prefHeight="24.0" prefWidth="564.0" spacing="360.0">
          <children>
             <Label prefHeight="36.0" prefWidth="144.0" text="Теги">
@@ -67,6 +61,14 @@
             <CheckBox layoutX="94.0" layoutY="5.0" mnemonicParsing="false" text="TAG3" />
          </children>
       </AnchorPane>
-      <FlowPane prefHeight="135.0" prefWidth="200.0" />
+      <FlowPane prefHeight="135.0" prefWidth="200.0">
+         <children>
+            <Label text="FxNotes">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <TextField promptText="Поиск" />
+         </children></FlowPane>
    </children>
 </AnchorPane>

@@ -36,7 +36,7 @@ public class NoteManager {
         int counter = 0;
         for (int i = 0; i < note.getContent().length(); i++) {
 
-            if (counter == 40){
+            if (counter == 28){
                 finals.append("\n");
                 counter = 0;
             }else{
